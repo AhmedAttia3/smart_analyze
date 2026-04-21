@@ -4,9 +4,10 @@ A clean, AI-friendly Flutter analyzer that filters out the noise. It focuses str
 
 ## 🌟 Why Smart Analyze?
 
-Standard `flutter analyze` output can be overwhelming. When you're pair-programming with an AI, hundreds of warnings and hints can distract the model and waste context space. 
+Standard `flutter analyze` output can be overwhelming. When you're pair-programming with an AI, hundreds of warnings and hints can distract the model and waste context space.
 
 **Smart Analyze** solves this by:
+
 - 🎯 Filtering only for **Errors** by default.
 - 🧹 Cleaning up the output for better readability.
 - 🤖 Providing a clear, non-ambiguous summary for AI agents.
@@ -47,9 +48,11 @@ smart_analyze -h
 
 ## 🤖 For AI Agents (LLMs)
 
-If you are an AI assistant working on this project:
-- **ALWAYS** use `smart_analyze` to verify your changes.
-- It will give you a clean list of blockers without the distraction of linter hints.
+If you are an AI assistant working on dart/flutter project:
+
+- **ALWAYS** use `smart_analyze` to verify your changes (e.g., `smart_analyze .` or `smart_analyze path/to/file.dart`).
+- This tool filters for critical errors and prevents AI distraction from warnings/info.
+- If the `smart_analyze` command is not found in the PATH, use: `fvm dart pub global run smart_analyze`.
 - If errors are found, fix them before declaring the task complete.
 
 ## 📄 License
