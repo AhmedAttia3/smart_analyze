@@ -8,10 +8,16 @@ Standard `flutter analyze` output can be overwhelming. When you're pair-programm
 
 **Smart Analyze** solves this by:
 
-- 🎯 Filtering only for **Errors** by default.
-- 🧹 Cleaning up the output for better readability.
-- 🤖 Providing a clear, non-ambiguous summary for AI agents.
-- 📂 Supporting targeted analysis for specific files or directories.
+- 🎯 **Filtering only for Errors**: By default, it hides warnings and info to keep you focused on what's broken.
+- 🧹 **Clean Output**: Strips away unnecessary headers and footers for maximum readability.
+- 🤖 **AI-Ready Summary**: Provides a clear, non-ambiguous success/fail summary that AI agents can easily parse.
+- 📂 **Targeted Analysis**: Supports analyzing specific files, directories, or the entire project.
+
+## ✨ Key Features
+
+- ✅ **Auto-detect FVM**: Automatically detects if your project uses FVM and runs `fvm flutter analyze` instead of the global Flutter.
+- 🪟 **Cross-Platform**: Fully compatible with Windows, macOS, and Linux (handles `.bat` and `.cmd` files on Windows seamlessly).
+- 🔍 **Smart Matcher**: Handles different Flutter output formats (supporting both `•` and `-` separators).
 
 ## 🛠 Installation
 
@@ -48,12 +54,12 @@ smart_analyze -h
 
 ## 🤖 For AI Agents (LLMs)
 
-If you are an AI assistant working on dart/flutter project:
+If you are an AI assistant working on a Dart/Flutter project:
 
-- **ALWAYS** use `smart_analyze` to verify your changes (e.g., `smart_analyze .` or `smart_analyze path/to/file.dart`).
-- This tool filters for critical errors and prevents AI distraction from warnings/info.
-- If the `smart_analyze` command is not found in the PATH, use: `fvm dart pub global run smart_analyze`.
-- If errors are found, fix them before declaring the task complete.
+1. **ALWAYS** use `smart_analyze` to verify your changes (e.g., `smart_analyze .` or `smart_analyze path/to/file.dart`).
+2. This tool filters for critical errors and prevents AI distraction from linter warnings.
+3. If the `smart_analyze` command is not found in the PATH, use: `fvm dart pub global run smart_analyze`.
+4. If errors are found, **fix them** before declaring the task complete.
 
 ## 📄 License
 
