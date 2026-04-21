@@ -36,7 +36,7 @@ void main(List<String> args) async {
   // Check if fvm is available
   bool useFvm = false;
   try {
-    final fvmCheck = await Process.run('fvm', ['--version']);
+    final fvmCheck = await Process.run('fvm', ['--version'], runInShell: true);
     if (fvmCheck.exitCode == 0) {
       useFvm = true;
     }
@@ -57,6 +57,7 @@ void main(List<String> args) async {
     cmd,
     analyzeArgs,
     workingDirectory: Directory.current.path,
+    runInShell: true,
   );
 
   int errorCount = 0;
@@ -68,15 +69,15 @@ void main(List<String> args) async {
     final trimmed = line.trim();
     bool shouldPrint = false;
     
-    if (trimmed.startsWith('error •')) {
+    if (trimmed.startsWith('error •') || trimmed.startsWith('error -')) {
       shouldPrint = true;
       errorCount++;
-    } else if (trimmed.startsWith('warning •')) {
+    } else if (trimmed.startsWith('warning •') || trimmed.startsWith('warning -')) {
       if (mode == 'warning' || mode == 'info') {
         shouldPrint = true;
       }
       warningCount++;
-    } else if (trimmed.startsWith('info •')) {
+    } else if (trimmed.startsWith('info •') || trimmed.startsWith('info -')) {
       if (mode == 'info') {
         shouldPrint = true;
       }
